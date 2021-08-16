@@ -32,5 +32,8 @@ public class DistanceResource {
                          @RequestParam(name = "to") final Long city2) {
         log.info("byCube");
         return ResponseEntity.ok().body(service.distanceByCubeInMeters(city1, city2));
+
+        // testando meu commit
+        
     }
 }
