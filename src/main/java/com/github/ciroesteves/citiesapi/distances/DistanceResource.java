@@ -34,6 +34,6 @@ public class DistanceResource {
         return ResponseEntity.ok().body(service.distanceByCubeInMeters(city1, city2));
 
         // testando meu commit
-        
+
     }
 }
