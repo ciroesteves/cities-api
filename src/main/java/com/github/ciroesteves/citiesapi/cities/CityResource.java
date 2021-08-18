@@ -1,7 +1,7 @@
 package com.github.ciroesteves.citiesapi.cities;
 
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +18,12 @@ public class CityResource {
 
     // 2nd - Pageable
     @GetMapping
-    public Page<City> cities(final Pageable page) {
-        return repository.findAll(page);
+    public ResponseEntity<Object> cities(final Pageable page) {
+        try{
+            return (ResponseEntity<Object>) repository.findAll(page);
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+
     }
 }
